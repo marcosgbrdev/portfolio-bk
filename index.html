@@ -4,7 +4,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Marcos "BK" | Desenvolvedor Web</title>
+  <title>Marcos "BK" | Desenvolvedor Web — Sistemas, Automação & IA</title>
+  <meta name="description" content="Portfólio de Marcos Gabriel (BK) — Desenvolvedor Web focado em sistemas, automação de processos, integração com APIs e IA generativa.">
 
   <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -17,24 +18,29 @@
 </head>
 
 <body>
+
+  <!-- ==================== HEADER / NAV ==================== -->
   <header>
     <div class="container nav-container">
       <a href="#home" class="logo">&lt;BK /&gt;</a>
-      <button class="mobile-menu-btn"><i class="fas fa-bars"></i></button>
+      <button class="mobile-menu-btn" aria-label="Abrir menu"><i class="fas fa-bars"></i></button>
       <nav class="nav-links">
         <a href="#home" class="nav-link active">Home</a>
         <a href="#sobre" class="nav-link">Sobre</a>
         <a href="#projetos" class="nav-link">Projetos</a>
+        <a href="#stack" class="nav-link">Stack</a>
         <a href="#contato" class="nav-link">Contato</a>
       </nav>
     </div>
   </header>
 
   <main>
+
+    <!-- ==================== HERO ==================== -->
     <section id="home" class="hero container section-pad">
       <div class="hero-content">
-        <h1>Desenvolvedor Web focado em <span class="highlight">sistemas reais</span></h1>
-        <p class="subtitle">Crio aplicações web completas, com banco de dados, autenticação e foco em resolver problemas de negócio.</p>
+        <h1>Desenvolvedor Web focado em <span class="highlight">sistemas, automação e IA</span></h1>
+        <p class="subtitle">Crio aplicações web, dashboards, automações e soluções digitais com foco em resolver problemas reais, integrar dados e transformar processos em sistemas funcionais.</p>
         <div class="cta-group">
           <a href="#projetos" class="btn btn-primary">Ver Projetos</a>
           <a href="#contato" class="btn btn-outline">Falar Comigo</a>
@@ -43,9 +49,7 @@
 
       <div class="hero-visual-wrapper">
         <div class="glow-effect"></div>
-
         <img src="perfil.png" alt="Foto de Marcos Gabriel" class="profile-photo">
-
         <div class="code-card">
           <div class="code-header">
             <div class="dot"></div>
@@ -57,107 +61,280 @@
       </div>
     </section>
 
+    <!-- ==================== SOBRE MIM ==================== -->
     <section id="sobre" class="container section-pad">
       <h2 class="section-title">Sobre Mim</h2>
-      <div class="about-content" style="max-width: 800px; margin: 0 auto; text-align: center;">
+      <div class="about-content">
         <p class="text-lg">
-          Sou desenvolvedor web com experiência prática em projetos em produção real. Trabalho na criação de sistemas completos, integração com banco de dados e soluções sob medida, sempre com foco em funcionalidade, organização e resultado. Não apenas escrevo código, construo ferramentas que clientes utilizam no dia a dia.
+          Sou desenvolvedor web com experiência prática na criação de sistemas, dashboards e soluções digitais voltadas para organização, automação e eficiência operacional. Trabalho com desenvolvimento web, banco de dados, integração com APIs e aplicação de IA generativa em fluxos inteligentes. Meu foco é construir ferramentas funcionais, claras e úteis para problemas reais.
         </p>
 
-        <div class="grid-cards" style="margin-top: 40px; text-align: left;">
-          <div class="card">
+        <div class="grid-cards grid-4" style="margin-top: 40px; text-align: left;">
+          <div class="card about-card">
             <i class="fas fa-laptop-code card-icon"></i>
             <h3>Sistemas Web</h3>
-            <p>Desenvolvimento de aplicações completas, dashboards e painéis administrativos.</p>
+            <p>Desenvolvimento de aplicações, dashboards e painéis administrativos com foco em usabilidade e organização.</p>
           </div>
-          <div class="card">
+          <div class="card about-card">
+            <i class="fas fa-robot card-icon"></i>
+            <h3>Automação & IA</h3>
+            <p>Modelagem de fluxos automatizados, integração com APIs e uso de IA generativa para otimizar processos.</p>
+          </div>
+          <div class="card about-card">
             <i class="fas fa-database card-icon"></i>
-            <h3>Backend & BD</h3>
-            <p>Modelagem de dados (SQL), autenticação segura e lógica de servidor (PHP/Node).</p>
+            <h3>Banco de Dados</h3>
+            <p>Organização, modelagem e manipulação de dados usando soluções como Supabase, PostgreSQL e MySQL.</p>
           </div>
-          <div class="card">
-            <i class="fas fa-check-circle card-icon"></i>
-            <h3>Foco em Resultado</h3>
-            <p>Soluções pensadas para resolver o problema do negócio, com código limpo.</p>
+          <div class="card about-card">
+            <i class="fas fa-headset card-icon"></i>
+            <h3>Suporte Técnico</h3>
+            <p>Diagnóstico de problemas, configuração de softwares e apoio a usuários em ambientes digitais.</p>
           </div>
         </div>
       </div>
     </section>
 
+    <!-- ==================== PROJETOS ==================== -->
     <section id="projetos" class="container section-pad">
-      <h2 class="section-title">Projetos Realizados</h2>
+      <h2 class="section-title">Projetos Estratégicos</h2>
 
-      <div class="grid-cards">
+      <div class="grid-cards grid-projects">
+
+        <!-- Protocolo Talos -->
         <div class="card project-card">
           <div class="card-header">
-            <h3>Gestão Financeira</h3>
-            <span class="status-badge">Em Uso Real</span>
+            <div>
+              <span class="project-category">Automação com IA</span>
+              <h3>Protocolo Talos</h3>
+            </div>
+            <span class="status-badge">Arquitetura</span>
           </div>
-          <p><strong>O que é:</strong> Sistema web para controle financeiro, desenvolvido e utilizado por cliente real.</p>
-          <p class="desc-full">Sistema completo para organização de receitas e despesas, com dados armazenados em banco de dados e interface web intuitiva.</p>
+          <p class="project-desc">Plataforma de automação de atendimento e vendas baseada em agentes inteligentes.</p>
+          <ul class="project-bullets">
+            <li>Modelagem de fluxo multiagente para atendimento, vendas e retenção</li>
+            <li>Integração conceitual com APIs, banco de dados e IA generativa</li>
+            <li>Estrutura pensada para chatbots, automação e análise de conversas</li>
+          </ul>
           <div class="tech-stack">
-            <span class="tech-tag">HTML</span>
-            <span class="tech-tag">CSS</span>
-            <span class="tech-tag">JS</span>
+            <span class="tech-tag">IA</span>
+            <span class="tech-tag">Chatbots</span>
+            <span class="tech-tag">APIs</span>
+            <span class="tech-tag">Automação</span>
             <span class="tech-tag">Supabase</span>
           </div>
         </div>
 
+        <!-- OrçaPro -->
         <div class="card project-card">
           <div class="card-header">
-            <h3>Navegação Dinâmica</h3>
+            <div>
+              <span class="project-category">Sistema Comercial</span>
+              <h3>OrçaPro</h3>
+            </div>
+            <span class="status-badge">MVP</span>
           </div>
-          <p><strong>O que é:</strong> Aplicação web com navegação fluida sem recarregamento (SPA like).</p>
-          <p class="desc-full">Sistema desenvolvido para carregar apenas partes específicas da página, mantendo o header estático. Performance otimizada.</p>
+          <p class="project-desc">Sistema para criação, organização e controle de orçamentos comerciais.</p>
+          <ul class="project-bullets">
+            <li>Geração e gestão de orçamentos</li>
+            <li>Organização de clientes, valores e histórico comercial</li>
+            <li>Interface pensada para produtividade e clareza operacional</li>
+          </ul>
           <div class="tech-stack">
-            <span class="tech-tag">HTML</span>
-            <span class="tech-tag">AJAX</span>
-            <span class="tech-tag">jQuery</span>
-            <span class="tech-tag">PHP</span>
+            <span class="tech-tag">Sistema Web</span>
+            <span class="tech-tag">CRUD</span>
+            <span class="tech-tag">Gestão</span>
+            <span class="tech-tag">Banco de Dados</span>
           </div>
         </div>
 
+        <!-- AgendaLink -->
         <div class="card project-card">
           <div class="card-header">
-            <h3>Conteúdo Dinâmico</h3>
+            <div>
+              <span class="project-category">Agendamento</span>
+              <h3>AgendaLink</h3>
+            </div>
+            <span class="status-badge">Em evolução</span>
           </div>
-          <p><strong>O que é:</strong> Sistema educacional/conteúdo gerenciado via banco de dados.</p>
-          <p class="desc-full">Aplicação onde todo o conteúdo exibido é puxado dinamicamente do banco MySQL, permitindo gestão fácil.</p>
+          <p class="project-desc">Plataforma para controle de agenda, atendimentos e organização de horários.</p>
+          <ul class="project-bullets">
+            <li>Estrutura de cadastro e gerenciamento de agendamentos</li>
+            <li>Organização de fluxos de atendimento</li>
+            <li>Base para integração com notificações e automações</li>
+          </ul>
           <div class="tech-stack">
-            <span class="tech-tag">CSS</span>
-            <span class="tech-tag">PHP</span>
-            <span class="tech-tag">MySQL</span>
+            <span class="tech-tag">Agenda</span>
+            <span class="tech-tag">Automação</span>
+            <span class="tech-tag">CRUD</span>
+            <span class="tech-tag">Web App</span>
           </div>
         </div>
+
+        <!-- BK Flow -->
+        <div class="card project-card">
+          <div class="card-header">
+            <div>
+              <span class="project-category">Automação de Processos</span>
+              <h3>BK Flow</h3>
+            </div>
+            <span class="status-badge">Projeto Próprio</span>
+          </div>
+          <p class="project-desc">Motor de automação voltado para transformar processos manuais em fluxos digitais.</p>
+          <ul class="project-bullets">
+            <li>Modelagem de fluxos operacionais</li>
+            <li>Integração entre dados, ações e processos</li>
+            <li>Foco em produtividade e redução de tarefas repetitivas</li>
+          </ul>
+          <div class="tech-stack">
+            <span class="tech-tag">Automação</span>
+            <span class="tech-tag">APIs</span>
+            <span class="tech-tag">Workflow</span>
+            <span class="tech-tag">IA</span>
+          </div>
+        </div>
+
+        <!-- BK Quant -->
+        <div class="card project-card">
+          <div class="card-header">
+            <div>
+              <span class="project-category">Dados e Análise</span>
+              <h3>BK Quant</h3>
+            </div>
+            <span class="status-badge">Arquitetura</span>
+          </div>
+          <p class="project-desc">Plataforma conceitual para análise de dados, métricas e tomada de decisão.</p>
+          <ul class="project-bullets">
+            <li>Estrutura para visualização e interpretação de dados</li>
+            <li>Organização de métricas e indicadores</li>
+            <li>Base para automações analíticas e modelos de decisão</li>
+          </ul>
+          <div class="tech-stack">
+            <span class="tech-tag">Dados</span>
+            <span class="tech-tag">Dashboard</span>
+            <span class="tech-tag">Métricas</span>
+            <span class="tech-tag">Python</span>
+          </div>
+        </div>
+
+        <!-- BK Ledger -->
+        <div class="card project-card">
+          <div class="card-header">
+            <div>
+              <span class="project-category">Gestão Financeira</span>
+              <h3>BK Ledger</h3>
+            </div>
+            <span class="status-badge">MVP</span>
+          </div>
+          <p class="project-desc">Sistema de controle financeiro para vendas, compras, estoque e fluxo de caixa.</p>
+          <ul class="project-bullets">
+            <li>Controle de receitas, despesas e indicadores financeiros</li>
+            <li>Organização de dados com banco relacional</li>
+            <li>Dashboard para acompanhamento de métricas operacionais</li>
+          </ul>
+          <div class="tech-stack">
+            <span class="tech-tag">Supabase</span>
+            <span class="tech-tag">Financeiro</span>
+            <span class="tech-tag">CRUD</span>
+            <span class="tech-tag">Dashboard</span>
+          </div>
+        </div>
+
       </div>
     </section>
 
+    <!-- ==================== STACK & COMPETÊNCIAS ==================== -->
+    <section id="stack" class="container section-pad">
+      <h2 class="section-title">Stack & Competências</h2>
+
+      <div class="grid-cards grid-4">
+
+        <div class="card stack-card">
+          <div class="stack-icon-wrapper">
+            <i class="fas fa-code"></i>
+          </div>
+          <h3>Frontend</h3>
+          <div class="stack-tags">
+            <span class="stack-tag">HTML</span>
+            <span class="stack-tag">CSS</span>
+            <span class="stack-tag">JavaScript</span>
+            <span class="stack-tag">React</span>
+            <span class="stack-tag">Next.js</span>
+          </div>
+        </div>
+
+        <div class="card stack-card">
+          <div class="stack-icon-wrapper">
+            <i class="fas fa-server"></i>
+          </div>
+          <h3>Backend & Banco</h3>
+          <div class="stack-tags">
+            <span class="stack-tag">PHP</span>
+            <span class="stack-tag">Node.js</span>
+            <span class="stack-tag">Supabase</span>
+            <span class="stack-tag">PostgreSQL</span>
+            <span class="stack-tag">MySQL</span>
+          </div>
+        </div>
+
+        <div class="card stack-card">
+          <div class="stack-icon-wrapper">
+            <i class="fas fa-brain"></i>
+          </div>
+          <h3>Automação & IA</h3>
+          <div class="stack-tags">
+            <span class="stack-tag">APIs</span>
+            <span class="stack-tag">IA Generativa</span>
+            <span class="stack-tag">Chatbots</span>
+            <span class="stack-tag">Automação</span>
+            <span class="stack-tag">Python</span>
+          </div>
+        </div>
+
+        <div class="card stack-card">
+          <div class="stack-icon-wrapper">
+            <i class="fas fa-tools"></i>
+          </div>
+          <h3>Suporte & Infra</h3>
+          <div class="stack-tags">
+            <span class="stack-tag">Manutenção</span>
+            <span class="stack-tag">Configuração</span>
+            <span class="stack-tag">Diagnóstico</span>
+            <span class="stack-tag">Software</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== CONTATO ==================== -->
     <section id="contato" class="container section-pad">
       <div class="contact-wrapper">
-        <h2 class="section-title">Vamos conversar?</h2>
-        <p class="contact-text">Estou disponível para novos projetos e oportunidades.</p>
+        <h2 class="section-title">Vamos construir algo?</h2>
+        <p class="contact-text">Disponível para oportunidades em desenvolvimento web, TI, automação, suporte técnico e projetos com IA.</p>
 
         <div class="social-icons">
-          <a href="https://wa.me/5591992531885" target="_blank" class="social-btn whatsapp">
+          <a href="https://wa.me/5591992531885" target="_blank" class="social-btn whatsapp" aria-label="WhatsApp">
             <i class="fab fa-whatsapp"></i>
           </a>
-          <a href="https://www.linkedin.com/in/marcos-gabriel-rodrigues-ba%C3%ADa-0181022a5/" target="_blank" class="social-btn linkedin">
+          <a href="https://www.linkedin.com/in/marcos-gabriel-rodrigues-ba%C3%ADa-0181022a5/" target="_blank" class="social-btn linkedin" aria-label="LinkedIn">
             <i class="fab fa-linkedin-in"></i>
           </a>
-          <a href="https://github.com/MarcosGDev-00" target="_blank" class="social-btn github">
+          <a href="https://github.com/MarcosGDev-00" target="_blank" class="social-btn github" aria-label="GitHub">
             <i class="fab fa-github"></i>
           </a>
-          <a href="https://www.instagram.com/bk.marcosr?igsh=MXVvbHpxczR4a2o0cg==" target="_blank" class="social-btn instagram">
+          <a href="https://www.instagram.com/bk.marcosr?igsh=MXVvbHpxczR4a2o0cg==" target="_blank" class="social-btn instagram" aria-label="Instagram">
             <i class="fab fa-instagram"></i>
           </a>
         </div>
       </div>
     </section>
+
   </main>
 
+  <!-- ==================== FOOTER ==================== -->
   <footer>
     <div class="container">
-      <p>&copy; 2024 Marcos Gabriel (BK). Todos os direitos reservados.</p>
+      <p>&copy; 2026 Marcos Gabriel (BK). Todos os direitos reservados.</p>
     </div>
   </footer>
 

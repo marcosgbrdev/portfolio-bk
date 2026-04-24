@@ -1,20 +1,25 @@
+/* ============================================================
+   PORTFÓLIO — MARCOS GABRIEL (BK)
+   Dark Minimal Premium — 2026
+   ============================================================ */
+
 /* --- RESET & VARIÁVEIS (SOFT DARK MINIMAL) --- */
 :root {
   /* Paleta Monocromática Suave */
-  --bg-main: #080808; /* Preto profundo, mas não absoluto */
-  --bg-surface: #121212; /* Cinza muito escuro para elementos */
-  --bg-highlight: #1c1c1c; /* Hover suave */
+  --bg-main: #080808;
+  --bg-surface: #121212;
+  --bg-highlight: #1c1c1c;
 
   --text-primary: #ffffff;
-  --text-secondary: #888888; /* Cinza médio, elegante */
+  --text-secondary: #888888;
 
-  --accent: #ffffff; /* Destaques em branco puro */
+  --accent: #ffffff;
 
-  --border-invisible: rgba(255, 255, 255, 0.03); /* Linha quase imperceptível */
+  --border-invisible: rgba(255, 255, 255, 0.03);
 
   /* Arredondamento Global */
-  --radius-btn: 50px; /* Botões estilo "Pílula" */
-  --radius-card: 20px; /* Cards bem arredondados */
+  --radius-btn: 50px;
+  --radius-card: 20px;
 
   --font-main: 'Inter', sans-serif;
   --font-code: 'Fira Code', monospace;
@@ -36,8 +41,9 @@ body {
   background-color: var(--bg-main);
   color: var(--text-primary);
   line-height: 1.6;
-  /* Removemos o grid de fundo para ficar mais limpo ainda */
+  overflow-x: hidden;
 }
+
 
 /* --- UTILITÁRIOS --- */
 .container {
@@ -46,14 +52,17 @@ body {
   margin: 0 auto;
   padding: 0 20px;
 }
+
 .section-pad {
   padding: 120px 0;
   scroll-margin-top: var(--header-height);
 }
+
 .highlight {
   color: var(--text-primary);
   font-weight: 700;
-} /* Destaque sutil apenas com peso */
+}
+
 .text-lg {
   font-size: 1.15rem;
   color: var(--text-secondary);
@@ -61,11 +70,26 @@ body {
   font-weight: 300;
 }
 
+
+/* --- ANIMAÇÃO DE ENTRADA (FADE IN UP) --- */
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
 /* --- HEADER CLEAN --- */
 header {
-  background-color: rgba(8, 8, 8, 0.8); /* Fundo semi-transparente */
-  backdrop-filter: blur(20px); /* Blur forte para elegância */
-  border-bottom: 1px solid var(--border-invisible); /* Linha quase invisível */
+  background-color: rgba(8, 8, 8, 0.8);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border-invisible);
   height: var(--header-height);
   position: sticky;
   top: 0;
@@ -92,11 +116,12 @@ header {
   display: flex;
   gap: 40px;
 }
+
 .nav-link {
   font-size: 0.9rem;
   font-weight: 500;
   color: var(--text-secondary);
-  transition: 0.3s;
+  transition: color 0.3s;
   text-decoration: none;
 }
 
@@ -104,6 +129,7 @@ header {
 .nav-link.active {
   color: var(--text-primary);
 }
+
 
 /* --- HERO & TYPEWRITER --- */
 .hero {
@@ -123,22 +149,24 @@ header {
 }
 
 .hero-content .subtitle {
-  font-size: 1.2rem;
+  font-size: 1.15rem;
   margin-bottom: 2.5rem;
-  max-width: 480px;
+  max-width: 520px;
   color: var(--text-secondary);
   font-weight: 300;
+  line-height: 1.7;
 }
 
 .cta-group {
   display: flex;
   gap: 15px;
+  flex-wrap: wrap;
 }
 
 /* Botões Arredondados (Pill Shape) */
 .btn {
   padding: 16px 36px;
-  border-radius: var(--radius-btn); /* Totalmente arredondado */
+  border-radius: var(--radius-btn);
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -153,121 +181,101 @@ header {
   color: #000;
   border: 1px solid var(--accent);
 }
+
 .btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 10px 20px rgba(255, 255, 255, 0.15); /* Sombra suave branca */
+  box-shadow: 0 10px 20px rgba(255, 255, 255, 0.15);
 }
 
 /* Botão Transparente Clean */
 .btn-outline {
   background: transparent;
-  border: 1px solid rgba(255, 255, 255, 0.2); /* Borda muito sutil */
+  border: 1px solid rgba(255, 255, 255, 0.2);
   color: var(--text-primary);
 }
+
 .btn-outline:hover {
   border-color: var(--text-primary);
   background: rgba(255, 255, 255, 0.05);
 }
 
-/* Editor de Código Arredondado */
-/* --- COMPOSIÇÃO DA HERO (FOTO + CÓDIGO LADO A LADO) --- */
 
-/* O Container agora alinha os itens lado a lado */
 /* --- COMPOSIÇÃO DA HERO (FOTO + CÓDIGO) --- */
-
-/* O Container que segura tudo */
 .hero-visual-wrapper {
-    position: relative;
-    width: 100%;
-    height: 500px; /* Altura fixa para garantir o layout */
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  position: relative;
+  width: 100%;
+  height: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-/* 1. O Efeito de Luz (Glow) atrás de você */
+/* Efeito de Luz (Glow) */
 .glow-effect {
-    position: absolute;
-    width: 300px;
-    height: 300px;
-    background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 70%);
-    border-radius: 50%;
-    z-index: 0;
-    top: 10%;
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.08) 0%, transparent 70%);
+  border-radius: 50%;
+  z-index: 0;
+  top: 10%;
 }
 
-/* 2. Sua Foto */
+/* Foto de Perfil */
 .profile-photo {
-    height: 100%; /* Ocupa a altura do container */
-    max-height: 500px;
-    object-fit: contain;
-    position: relative;
-    bottom: 70px;
-    z-index: 1; /* Fica na frente do glow */
+  height: 100%;
+  max-height: 500px;
+  object-fit: contain;
+  position: relative;
+  bottom: 70px;
+  z-index: 1;
 
-    filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.3)) 
-            drop-shadow(0 0 15px rgba(255, 255, 255, 0.1));
-    
-    mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
-    -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+  filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.3))
+          drop-shadow(0 0 15px rgba(255, 255, 255, 0.1));
+
+  mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
 }
 
-/* 3. O Card de Código (Flutuante) */
+/* Card de Código (Flutuante) */
 .code-card {
-    position: absolute;
-    bottom: 0;
-    left: 0;       /* Joga levemente para a esquerda */
-    z-index: 2;    /* Fica na frente da foto */
-    
-    background: rgba(18, 18, 18, 0.95); /* Fundo bem escuro */
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255,255,255,0.1);
-    border-radius: 12px;
-    padding: 20px;
-    
-    width: 310px; /* Tamanho do editor */
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5); /* Sombra forte para separar da foto */
-    
-    /* Fonte do código */
-    font-family: var(--font-code);
-    font-size: 0.85rem;
-    line-height: 1.6;
-}
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 2;
 
-/* Ajustes Responsivos */
-@media (max-width: 768px) {
-    .hero-visual-wrapper {
-        height: 400px;
-        margin-top: 20px;
-    }
-    
-    .profile-photo {
-        max-height: 350px;
-    }
+  background: rgba(18, 18, 18, 0.95);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 20px;
 
-    .code-card {
-        bottom: 0;
-        left: 50%;
-        transform: translateX(-50%); /* Centraliza o código no mobile */
-        width: 90%; /* Código ocupa largura quase total no mobile */
-    }
+  width: 320px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+
+  font-family: var(--font-code);
+  font-size: 0.8rem;
+  line-height: 1.6;
 }
 
 .code-header {
   display: flex;
   gap: 10px;
-  margin-bottom: 25px;
+  margin-bottom: 18px;
 }
+
 .dot {
   width: 10px;
   height: 10px;
   border-radius: 50%;
   background: #333;
-} /* Dots discretos */
+}
 
 #typewriter {
   color: var(--text-secondary);
 }
+
 .cursor {
   display: inline-block;
   width: 8px;
@@ -277,11 +285,11 @@ header {
   vertical-align: middle;
   margin-left: 2px;
 }
+
 @keyframes blink {
-  50% {
-    opacity: 0;
-  }
+  50% { opacity: 0; }
 }
+
 
 /* --- SEÇÕES & CARDS --- */
 .section-title {
@@ -291,26 +299,33 @@ header {
   font-weight: 600;
   letter-spacing: -0.5px;
 }
-/* Removemos o sublinhado do título para ficar mais limpo */
+
 .section-title::after {
   display: none;
 }
 
+
+/* --- GRID CARDS --- */
 .grid-cards {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 30px;
 }
 
+/* Grid 4 colunas para About e Stack */
+.grid-4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+
 .card {
   background-color: var(--bg-surface);
   padding: 40px;
-  border-radius: var(--radius-card); /* Card arredondado */
-  border: 1px solid transparent; /* Sem borda visível inicialmente */
+  border-radius: var(--radius-card);
+  border: 1px solid transparent;
   transition: all 0.4s ease;
 }
 
-/* Hover Minimalista: Apenas clareia o fundo levemente */
+/* Hover Minimalista */
 .card:hover {
   background-color: var(--bg-highlight);
   transform: translateY(-5px);
@@ -322,64 +337,186 @@ header {
   margin-bottom: 20px;
 }
 
-/* Projetos */
+.card h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: var(--text-primary);
+}
+
+.card p {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+
+/* --- ABOUT --- */
+.about-content {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+
+/* --- PROJETOS --- */
+.grid-projects {
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+}
+
 .project-card .card-header {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  margin-bottom: 20px;
+  align-items: flex-start;
+  margin-bottom: 16px;
+  gap: 12px;
 }
+
+.project-category {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--text-secondary);
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 500;
+}
+
 .project-card h3 {
   color: var(--text-primary);
   font-size: 1.25rem;
   font-weight: 600;
+  margin-bottom: 0;
 }
-.desc-full {
+
+.project-desc {
   font-size: 0.95rem;
-  margin-top: 15px;
   color: var(--text-secondary);
+  margin-bottom: 16px;
+  line-height: 1.6;
+}
+
+.project-bullets {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 20px 0;
+}
+
+.project-bullets li {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  padding: 5px 0;
+  padding-left: 18px;
+  position: relative;
+  line-height: 1.5;
+}
+
+.project-bullets li::before {
+  content: '›';
+  position: absolute;
+  left: 0;
+  color: #555;
+  font-weight: 700;
+  font-size: 1rem;
 }
 
 /* Badges e Tags Arredondadas */
 .status-badge {
   font-size: 0.7rem;
-  background: rgba(255, 255, 255, 0.1); /* Fundo sutil */
-  color: #fff;
-  padding: 5px 12px;
-  border-radius: 20px; /* Badge redonda */
+  background: rgba(255, 255, 255, 0.08);
+  color: #ccc;
+  padding: 5px 14px;
+  border-radius: 20px;
   font-weight: 500;
+  white-space: nowrap;
+  flex-shrink: 0;
+  border: 1px solid rgba(255, 255, 255, 0.06);
 }
 
 .tech-stack {
-  margin-top: 30px;
+  margin-top: 20px;
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 8px;
 }
+
 .tech-tag {
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   color: var(--text-secondary);
   background: rgba(255, 255, 255, 0.03);
-  padding: 8px 16px;
-  border-radius: 20px; /* Tag redonda */
+  padding: 6px 14px;
+  border-radius: 20px;
   transition: 0.3s;
 }
+
 .card:hover .tech-tag {
   background: rgba(255, 255, 255, 0.08);
   color: var(--text-primary);
 }
 
-/* --- SOCIAL ICONS CLEAN --- */
+
+/* --- STACK & COMPETÊNCIAS --- */
+.stack-card {
+  text-align: center;
+  padding: 35px 25px;
+}
+
+.stack-icon-wrapper {
+  width: 56px;
+  height: 56px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.05);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+  font-size: 1.4rem;
+  color: var(--text-primary);
+  transition: all 0.3s;
+}
+
+.card:hover .stack-icon-wrapper {
+  background: rgba(255, 255, 255, 0.1);
+  transform: scale(1.05);
+}
+
+.stack-tags {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.stack-tag {
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  background: rgba(255, 255, 255, 0.04);
+  padding: 6px 14px;
+  border-radius: 20px;
+  transition: 0.3s;
+}
+
+.card:hover .stack-tag {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--text-primary);
+}
+
+
+/* --- CONTATO / SOCIAL ICONS CLEAN --- */
 .contact-wrapper {
   text-align: center;
   max-width: 600px;
   margin: 0 auto;
 }
+
 .contact-text {
-  font-size: 1.2rem;
+  font-size: 1.15rem;
   margin-bottom: 3rem;
   color: var(--text-secondary);
+  line-height: 1.7;
 }
+
 .social-icons {
   display: flex;
   justify-content: center;
@@ -391,7 +528,6 @@ header {
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  /* Sem borda, sem fundo inicial */
   background: transparent;
   border: none;
   text-decoration: none;
@@ -399,52 +535,124 @@ header {
   align-items: center;
   justify-content: center;
   font-size: 1.6rem;
-  color: var(--text-secondary); /* Cinza inicial */
+  color: var(--text-secondary);
   transition: all 0.3s ease;
 }
 
-/* Hover: Uma bolha suave aparece e o ícone fica branco */
+/* Hover: Bolha suave e ícone branco */
 .social-btn:hover {
   background: rgba(255, 255, 255, 0.1);
   color: #fff;
   transform: scale(1.1);
 }
 
+
 /* --- FOOTER --- */
 footer {
   text-align: center;
   padding: 50px 0;
   border-top: 1px solid var(--border-invisible);
-  color: #444; /* Bem discreto */
+  color: #444;
   font-size: 0.85rem;
 }
 
-/* --- RESPONSIVO --- */
+
+/* ============================================================
+   RESPONSIVO
+   ============================================================ */
+
+/* Menu Mobile */
 .mobile-menu-btn {
   display: none;
   background: none;
   border: none;
   font-size: 1.5rem;
   color: var(--text-primary);
+  cursor: pointer;
 }
 
+/* === TABLET (< 1024px) === */
+@media (max-width: 1024px) {
+  .grid-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* === MOBILE (< 768px) === */
 @media (max-width: 768px) {
+
+  /* Hero */
   .hero {
     grid-template-columns: 1fr;
     text-align: center;
-    gap: 50px;
+    gap: 40px;
     padding-top: 40px;
+    min-height: auto;
   }
+
   .hero-content h1 {
-    font-size: 2.5rem;
+    font-size: 2.2rem;
   }
+
+  .hero-content .subtitle {
+    max-width: 100%;
+    font-size: 1rem;
+  }
+
   .cta-group {
     justify-content: center;
   }
 
+  .hero-visual-wrapper {
+    height: 380px;
+    margin-top: 10px;
+  }
+
+  .profile-photo {
+    max-height: 320px;
+  }
+
+  .code-card {
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    font-size: 0.72rem;
+  }
+
+  /* Grids */
+  .grid-4 {
+    grid-template-columns: 1fr;
+  }
+
+  .grid-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .grid-projects {
+    grid-template-columns: 1fr;
+  }
+
+  /* Seções */
+  .section-pad {
+    padding: 80px 0;
+  }
+
+  .section-title {
+    font-size: 1.6rem;
+    margin-bottom: 3rem;
+  }
+
+  /* Cards */
+  .card {
+    padding: 30px;
+  }
+
+  /* Nav */
   .mobile-menu-btn {
     display: block;
   }
+
   .nav-links {
     display: none;
     position: absolute;
@@ -456,14 +664,51 @@ footer {
     padding: 0;
     border-bottom: 1px solid var(--border-invisible);
   }
+
   .nav-links.active {
     display: flex;
   }
+
   .nav-link {
     font-size: 1.1rem;
     padding: 25px 0;
     text-align: center;
     border-bottom: 1px solid rgba(255, 255, 255, 0.03);
     width: 100%;
+  }
+
+  /* Contact */
+  .social-icons {
+    gap: 20px;
+  }
+
+  .contact-text {
+    font-size: 1rem;
+  }
+}
+
+/* === SMALL MOBILE (< 420px) === */
+@media (max-width: 420px) {
+  .hero-content h1 {
+    font-size: 1.8rem;
+  }
+
+  .btn {
+    padding: 14px 28px;
+    font-size: 0.85rem;
+  }
+
+  .hero-visual-wrapper {
+    height: 320px;
+  }
+
+  .profile-photo {
+    max-height: 260px;
+  }
+
+  .code-card {
+    width: 95%;
+    padding: 14px;
+    font-size: 0.68rem;
   }
 }
