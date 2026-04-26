@@ -22,17 +22,17 @@ document.addEventListener('DOMContentLoaded', () => {
     canvasW = canvas.width = window.innerWidth;
     canvasH = canvas.height = window.innerHeight;
 
-    const density = canvasW < 768 ? 30 : canvasW < 1200 ? 50 : 60;
+    const density = canvasW < 768 ? 28 : canvasW < 1200 ? 45 : 55;
     particles = [];
 
     for (let i = 0; i < density; i++) {
       particles.push({
         x: Math.random() * canvasW,
         y: Math.random() * canvasH,
-        vx: (Math.random() - 0.5) * 0.15,
-        vy: (Math.random() - 0.5) * 0.15,
-        r: Math.random() * 1.2 + 0.6,
-        baseOpacity: Math.random() * 0.25 + 0.05
+        vx: (Math.random() - 0.5) * 0.12,
+        vy: (Math.random() - 0.5) * 0.12,
+        r: Math.random() * 1.2 + 0.5,
+        baseOpacity: Math.random() * 0.2 + 0.04
       });
     }
 
@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function spawnPulse() {
-    const maxDist = 160;
+    const maxDist = 150;
     for (let attempts = 0; attempts < 20; attempts++) {
       const a = Math.floor(Math.random() * particles.length);
       const b = Math.floor(Math.random() * particles.length);
@@ -55,18 +55,20 @@ document.addEventListener('DOMContentLoaded', () => {
           from: a,
           to: b,
           progress: 0,
-          speed: 0.008 + Math.random() * 0.008
+          speed: 0.006 + Math.random() * 0.006
         });
         break;
       }
     }
   }
 
+  // Accent: #3B82F6 → rgb(59, 130, 246)
+  const accentR = 59, accentG = 130, accentB = 246;
+
   function drawNetwork() {
     ctx.clearRect(0, 0, canvasW, canvasH);
 
-    const maxDist = 140;
-    const accentR = 110, accentG = 135, accentB = 255;
+    const maxDist = 130;
 
     // Connections
     for (let i = 0; i < particles.length; i++) {
@@ -76,7 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const dist = Math.sqrt(dx * dx + dy * dy);
 
         if (dist < maxDist) {
-          const opacity = (1 - dist / maxDist) * 0.07;
+          const opacity = (1 - dist / maxDist) * 0.05;
           ctx.strokeStyle = `rgba(${accentR}, ${accentG}, ${accentB}, ${opacity})`;
           ctx.lineWidth = 0.4;
           ctx.beginPath();
@@ -95,23 +97,23 @@ document.addEventListener('DOMContentLoaded', () => {
       const dmx = p.x - mouseX;
       const dmy = p.y - mouseY;
       const mouseDist = Math.sqrt(dmx * dmx + dmy * dmy);
-      if (mouseDist < 120 && mouseDist > 0) {
-        const force = (1 - mouseDist / 120) * 0.4;
+      if (mouseDist < 100 && mouseDist > 0) {
+        const force = (1 - mouseDist / 100) * 0.3;
         p.vx += (dmx / mouseDist) * force;
         p.vy += (dmy / mouseDist) * force;
       }
 
-      // Apply subtle friction
-      p.vx *= 0.995;
-      p.vy *= 0.995;
+      // Apply friction
+      p.vx *= 0.996;
+      p.vy *= 0.996;
 
-      // Draw
+      // Draw particle
       ctx.beginPath();
       ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
       ctx.fillStyle = `rgba(255, 255, 255, ${p.baseOpacity})`;
       ctx.fill();
 
-      // Update
+      // Update position
       p.x += p.vx;
       p.y += p.vy;
 
@@ -136,23 +138,23 @@ document.addEventListener('DOMContentLoaded', () => {
       const to = particles[pulse.to];
       const x = from.x + (to.x - from.x) * pulse.progress;
       const y = from.y + (to.y - from.y) * pulse.progress;
-      const fade = Math.sin(pulse.progress * Math.PI); // smooth bell curve
+      const fade = Math.sin(pulse.progress * Math.PI);
 
       // Outer glow
       ctx.beginPath();
-      ctx.arc(x, y, 10, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(${accentR}, ${accentG}, ${accentB}, ${0.08 * fade})`;
+      ctx.arc(x, y, 8, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(${accentR}, ${accentG}, ${accentB}, ${0.06 * fade})`;
       ctx.fill();
 
       // Core
       ctx.beginPath();
-      ctx.arc(x, y, 2, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(${accentR}, ${accentG}, ${accentB}, ${0.55 * fade})`;
+      ctx.arc(x, y, 1.8, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(${accentR}, ${accentG}, ${accentB}, ${0.4 * fade})`;
       ctx.fill();
     }
 
     // Spawn pulses naturally
-    if (pulses.length < 3 && Math.random() < 0.005) {
+    if (pulses.length < 3 && Math.random() < 0.004) {
       spawnPulse();
     }
 
@@ -204,7 +206,8 @@ document.addEventListener('DOMContentLoaded', () => {
   // 2. SCROLL REVEAL — STAGGERED ENTRANCE
   // ==========================================================
 
-  const revealElements = document.querySelectorAll('.reveal');
+  const allRevealElements = document.querySelectorAll('.reveal');
+  const heroRevealSet = new Set(document.querySelectorAll('.hero-content .reveal'));
 
   const revealObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
@@ -224,11 +227,16 @@ document.addEventListener('DOMContentLoaded', () => {
     rootMargin: '0px 0px -60px 0px'
   });
 
-  revealElements.forEach(el => revealObserver.observe(el));
+  // Observe only NON-hero reveals (hero has its own cinematic sequence)
+  allRevealElements.forEach(el => {
+    if (!heroRevealSet.has(el)) {
+      revealObserver.observe(el);
+    }
+  });
 
 
   // ==========================================================
-  // 3. MOUSE-FOLLOWING CARD GLOW (VERCEL-STYLE)
+  // 3. MOUSE-FOLLOWING CARD GLOW
   // ==========================================================
 
   const glowCards = document.querySelectorAll('.system-card');
@@ -247,20 +255,14 @@ document.addEventListener('DOMContentLoaded', () => {
   // ==========================================================
 
   const floatingNav = document.getElementById('floatingNav');
-  let lastScrollY = 0;
   let ticking = false;
 
   function onNavScroll() {
-    const scrollY = window.scrollY;
-
-    // Add/remove scrolled class
-    if (scrollY > 60) {
+    if (window.scrollY > 60) {
       floatingNav.classList.add('scrolled');
     } else {
       floatingNav.classList.remove('scrolled');
     }
-
-    lastScrollY = scrollY;
     ticking = false;
   }
 
@@ -345,7 +347,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const heroReveals = document.querySelectorAll('.hero-content .reveal');
 
-  // Staggered cinematic reveal
+  // Text reveals first, then photo fades in last
   setTimeout(() => {
     heroReveals.forEach((el, i) => {
       el.style.transitionDelay = `${0.4 + i * 0.18}s`;
